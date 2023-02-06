@@ -7,6 +7,7 @@ import java.util.Objects;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -24,7 +25,7 @@ public class Usuario implements Serializable{
 	private String senha;
 	private String nome;
 	
-	@OneToMany(mappedBy = "usuario", orphanRemoval = true, cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "usuario", orphanRemoval = true, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private List<Telefone> listaTelefones = new ArrayList<>();
 	
 	public Usuario() {
@@ -59,6 +60,13 @@ public class Usuario implements Serializable{
 	}
 	public void setNome(String nome) {
 		this.nome = nome;
+	}
+	
+	public List<Telefone> getListaTelefones() {
+		return listaTelefones;
+	}
+	public void setListaTelefones(List<Telefone> listaTelefones) {
+		this.listaTelefones = listaTelefones;
 	}
 	@Override
 	public int hashCode() {
