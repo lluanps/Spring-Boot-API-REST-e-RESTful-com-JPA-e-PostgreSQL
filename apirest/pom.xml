@@ -10,7 +10,7 @@
 	<groupId>api.rest</groupId>
 	<artifactId>apirest</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 	<name>apirest</name>
 	<description>Curso Spring Boot API REST e RESTful com JPA e PostgreSQL - [ Microserviços ]</description>
 	<properties>
