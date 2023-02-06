@@ -24,7 +24,7 @@ public class Telefone implements Serializable{
 	
 	@JsonIgnore
 	@ForeignKey(name = "usuario_id")
-	@ManyToOne
+	@ManyToOne(optional = false)
 	private Usuario usuario;
 	
 	public Telefone() {

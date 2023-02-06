@@ -54,6 +54,11 @@ public class IndexController {
 	
 	@PostMapping(value = "/novo")
 	public ResponseEntity<Usuario> cadastrar(@RequestBody Usuario usuario) {
+		
+		for (int pos = 0; pos < usuario.getListaTelefones().size(); pos++) {
+			usuario.getListaTelefones().get(pos).setUsuario(usuario);
+		}
+		
 		Usuario usuarioSalvo = usuarioRepository.save(usuario);
 		
 		return new ResponseEntity<Usuario>(usuarioSalvo, HttpStatus.CREATED);
