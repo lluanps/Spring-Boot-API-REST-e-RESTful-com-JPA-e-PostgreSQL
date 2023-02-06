@@ -75,6 +75,11 @@ public class IndexController {
 	
 	@PutMapping(value = "/{id}")
 	public ResponseEntity<Usuario> atualizar(@RequestBody Usuario usuario, @PathVariable Long id) {
+		
+		for (int pos = 0; pos < usuario.getListaTelefones().size(); pos++) {
+			usuario.getListaTelefones().get(pos).setUsuario(usuario);
+		}
+		
 		Usuario usuarioAtualizado = usuarioRepository.save(usuario);
 		return new ResponseEntity<Usuario>(usuarioAtualizado, HttpStatus.OK);
 	}
